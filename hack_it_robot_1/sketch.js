@@ -28,10 +28,6 @@ function draw()
     rect(160,160,30,60,0);
     
     
-    
-    
-    
-
 
 //	//robots antenna
 //	fill(250, 250, 0);
