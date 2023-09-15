@@ -2,18 +2,61 @@ function setup()
 {
 	//create a canvas for the robot
 	createCanvas(1000, 700);
-    background(210,220,220);
+    background(49, 53, 86);
 }
 
 function draw()
 {
-//	noStroke();
+	noStroke();
     strokeWeight(1);
 
     //FIRST CHARACTER
     
+    //curly behind
+    fill(0,0,0);
+    ellipse(210,180,76,70);
+    ellipse(180,180,70,70);
+    ellipse(190,140,80,40);
+    
+    
+    //neck
+    fill(255, 230, 222);
+    beginShape();
+    vertex(180,200);
+    vertex(185,215);
+    vertex(175,220);
+    vertex(190,225);
+    vertex(215,215);
+    vertex(209,214);
+    vertex(203,180);
+    endShape();
+    
+    //curly hair
+	fill(0,0,0);
+    ellipse(140, 160, 26, 56);
+    ellipse(150,180,80,55);
+    ellipse(145,200,30,76);
+    ellipse(150,230,56,50);
+
+    beginShape();
+    vertex(125,240);
+    vertex(140,220);
+    vertex(160,270);
+    vertex(140,300);
+    vertex();
+    endShape();
+    
+    beginShape();
+    vertex(130,270);
+    vertex(110,280);
+    vertex(100,260);
+    vertex(110,270);
+    vertex(130,250);
+    endShape();
+    
+    
     //face
-    fill(232, 190, 172);
+    fill(255, 230, 222);
     beginShape();
     vertex(150,150);
     vertex(155,180);
@@ -23,12 +66,10 @@ function draw()
     vertex(208,140);
     endShape();
     
-    //curly hair
-	fill(255);
-    ellipse(140, 160, 26, 56);
-	ellipse(145, 150, 26, 40);
-	ellipse(140, 165, 14, 36);
-    
+    //curly forward face
+    fill(0,0,0);
+    ellipse(240,220,50,50);
+    ellipse(210,160,40,40);
     
 	//witch hat
 	strokeWeight(1);
@@ -48,6 +89,70 @@ function draw()
     vertex(100,150);
     endShape();
     
+     //toes
+    fill(255, 230, 222);
+    beginShape();
+    vertex(200,590);
+    vertex(203,605);
+    vertex(225,590);
+    vertex(225,580);
+    endShape();
+    
+    //legs
+    fill(228, 228, 228);
+    beginShape();
+    vertex(230,450);
+    vertex(220,550);
+    vertex(223,570);
+    vertex(225,580);
+    vertex(210,590);
+    vertex(200,595);
+    vertex(200,560);
+    vertex(205,540);
+    vertex(200,450);
+    endShape();
+    
+    beginShape();
+    vertex(160,400);
+    vertex(180,550);
+    vertex(170,560);
+    vertex(160,580);
+    vertex(140,585);
+    vertex(140,570);
+    vertex(160,540);
+    vertex(140,450);
+    endShape();
+    
+    //body
+    fill(101, 0, 103);
+    beginShape();
+    vertex(145,225);
+    vertex(190,217);
+    vertex(240, 225);
+    vertex(250,270);
+    vertex(250,330);
+    vertex(240,460);
+    vertex(200,470);
+    vertex(140,460);
+    vertex(80,450);
+    vertex(60,440);
+    vertex(40,420);
+    vertex(70,410);
+    vertex(145,225);
+    endShape();
+    
+    //scarf
+    fill(101,0,103);
+    beginShape();
+    vertex(160,200);
+    vertex(150,230);
+    vertex(200,235);
+    vertex(230,230);
+    vertex(220,200);
+    vertex(200,210);
+    vertex(180,210);
+    vertex(160,200)
+    endShape();
     
 
 	//robot body 2 - delete this code and make your own robot body
