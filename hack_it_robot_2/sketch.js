@@ -8,7 +8,7 @@ function setup()
 function draw()
 {
 	noStroke();
-    strokeWeight(1);
+//    strokeWeight(1);
 
     //FIRST CHARACTER
     
@@ -70,6 +70,11 @@ function draw()
     fill(0,0,0);
     ellipse(240,220,50,50);
     ellipse(210,160,40,40);
+    
+    //face features
+    fill(0,0,0);
+    rect(154,160,11,3)
+    rect(182,160,11,3)
     
 	//witch hat
 	strokeWeight(1);
@@ -154,129 +159,54 @@ function draw()
     vertex(160,200)
     endShape();
     
+    // --------------------------- character 2
 
-	//robot body 2 - delete this code and make your own robot body
-	rect(390, 200, 120, 130);
-	rect(370, 200, 30, 100);
-	rect(500, 200, 30, 100);
-	rect(420, 330, 30, 110);
-	rect(450, 330, 30, 110);
-
-
-	//robot body 3 - delete this code and make your own robot body
-	rect(690, 200, 120, 130);
-	rect(670, 200, 30, 100);
-	rect(800, 200, 30, 100);
-	rect(720, 330, 30, 110);
-	rect(750, 330, 30, 110);
-
-
-	// !!! Draw the robot heads - You shouldn't need to change this code !!!
-
-	//robot head 1
-//	fill(200);
-//	rect(100, 100, 100, 100, 10);
-//    //robot head 2
-//	rect(400, 100, 100, 100, 10);
-//    //robot head 3
-//	rect(700, 100, 100, 100, 10);
-
-//	//ears
-//	fill(255, 0, 0);
-//
-//	//robot ears 1
-//	rect(93, 130, 10, 33);
-//	rect(197, 130, 10, 33);
-
-	//robot ears 2
-	rect(393, 130, 10, 33);
-	rect(497, 130, 10, 33);
-
-	//robot ears 3
-	rect(693, 130, 10, 33);
-	rect(797, 130, 10, 33);
-
-
-
-//	//robots' antennas
-//	fill(250, 250, 0);
-//    // robot antenna 1
-//	ellipse(150, 93, 10, 10);
-//    // robot antenna 1
-//	ellipse(450, 93, 10, 10);
-//    // robot antenna 1
-//	ellipse(750, 93, 10, 10);
-//
-//    //robots' antennas
-//	fill(200, 0, 200);
-//    // robot antenna 1
-//	rect(140, 97, 20, 10);
-//    // robot antenna 2
-//	rect(440, 97, 20, 10);
-//    // robot antenna 3
-//	rect(740, 97, 20, 10);
-
-//
-//	//robot 1's eyes
-//	fill(255);
-//	ellipse(125, 130, 26, 26);
-//	point(125, 130);
-//	ellipse(175, 130, 26, 26);
-//	point(175, 130);
-
-	//robot 2's eyes
-	ellipse(425, 130, 26, 26);
-	point(425, 130);
-	ellipse(475, 130, 26, 26);
-	point(475, 130);
-
-	//robot 3's eyes
-	ellipse(725, 130, 26, 26);
-	point(725, 130);
-	ellipse(775, 130, 26, 26);
-	point(775, 130);
+	//body
+    fill(151,107,147);
+	rect(400,400,20,20);
+    rect(520,400,20,20);
+    fill(255,215,167);
+    rect(420,420,20,20);
+    rect(440,440,20,20);
+    rect(480,440,20,20);
+    rect(500,420,20,20)
+    fill(98,119,58);
+    rect(400,440,20,20);
+    rect(520,440,20,20);
+    
+    fill(154,123,112);
+    rect(440,460,60,40);
+    rect(460,500,20,20);
+    rect(440,520,60,40);
+    rect(450,560,15,20);
+    rect(475,560,15,20);
+    rect(445,580,15,10);
+    rect(475,580,15,10);
+    //face of tree
+    fill(182,255,126);
+    ellipse(450,480,10,7);
+    ellipse(475,480,10,7);
+    
+    // --------------------------- character 3
+    //body
+    fill(100,102,144);
+    beginShape();
+    vertex(680,80);
+    vertex(730,50);
+    vertex(790,80);
+    vertex(800,500);
+    vertex(780,480);
+    vertex(760,500);
+    vertex(740,480);
+    vertex(720,500);
+    vertex(700,480);
+    vertex(680,500);
+    vertex(680,80)
+    endShape();
+    // face of creature
+    fill(182,255,126);
+    rect(700,100,20,20);
+    rect(740,100,20,20);
 
 
-//	//robots' noses
-//	fill(255, 0, 0);
-//    //robot 1 nose
-//	triangle(150, 135, 135, 160, 165, 160);
-//    //robot 2 nose
-//	triangle(450, 135, 435, 160, 465, 160);
-//    //robot 3 nose
-//	triangle(750, 135, 735, 160, 765, 160);
-
-//	//robot 1 mouth
-//	noFill();
-//	beginShape();
-//	vertex(128, 175);
-//	vertex(136, 185);
-//	vertex(142, 175);
-//	vertex(150, 185);
-//	vertex(158, 175);
-//	vertex(166, 185);
-//	vertex(174, 175);
-//	endShape();
-
-	//robot 2 mouth
-	beginShape();
-	vertex(428, 175);
-	vertex(436, 185);
-	vertex(442, 175);
-	vertex(450, 185);
-	vertex(458, 175);
-	vertex(466, 185);
-	vertex(474, 175);
-	endShape();
-
-	//robot 3 mouth
-	beginShape();
-	vertex(728, 175);
-	vertex(736, 185);
-	vertex(742, 175);
-	vertex(750, 185);
-	vertex(758, 175);
-	vertex(766, 185);
-	vertex(774, 175);
-	endShape();
 }
