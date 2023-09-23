@@ -34,21 +34,21 @@ function draw()
 {
 	background(100, 155, 255); //fill the sky blue
 
-	noStroke();
+//	noStroke();
 	fill(0,155,0);
 	rect(0, 432, 1024, 144); //draw some green ground
 
 	//1. a cloud in the sky
 	//... add your code here
 
-	noStroke();
+//	noStroke();
 	fill(255);
 	text("cloud", 200, 100);
 
 	//2. a mountain in the distance
 	//... add your code here
 
-	noStroke();
+//	noStroke();
 	fill(255);
 	text("mountain", 500, 256);
 
@@ -70,8 +70,48 @@ function draw()
 
 	//5. a collectable token - eg. a jewel, fruit, coins
 	//... add your code here
+    
+    ellipse(300,200,25,20);
+    drawCarrot(400,450,50,12,3,9,29);
 
 	noStroke();
 	fill(255);
 	text("collectable item", 400, 400);
+}
+
+function drawCarrot(carrotX, carrotY, carrotLenght, carrotHeight,CarrotWidth, carrotGreen,size){
+    const x1 = carrotX;
+    const y1 = carrotY;
+    const x2 = x1 + carrotLenght;
+    const y2 = y1 + (carrotHeight/2);
+    const y3 = y2 + CarrotWidth;
+    const y4 = y3 +(carrotHeight/2);
+    
+    fill(255,92,33);
+    beginShape();
+    vertex(x1,y1);
+    vertex(x2,y2);
+    vertex(x2,y3);
+    vertex(x1,y4);
+    endShape();
+    
+    // attempts with arc...
+    const x6 = x1 - carrotGreen;
+    const y6 = y1 + carrotGreen;
+//    const x7 = x6 - (carrotGreen/2);
+//    const y7 = y6 + (carrotGreen/8);
+//    const cGreen = canvas.getContext("2d");
+//    fill(92,33,255);
+//    cGreen.beginPath();
+//    cGreen.arc(x6, y6, size, 40, 180); //x, y, radius, startAngle, endAngle
+//    cGreen.arc(x7,y7,5, 180,40);
+//    cGreen.stroke();
+    const x7 = x6+carrotGreen;
+    const newSize = size/2;
+    
+    fill(92,33,255);
+    ellipse(x7,y6,size,size);
+    erase();
+    ellipse(x6,y6,newSize,newSize);
+    
 }
