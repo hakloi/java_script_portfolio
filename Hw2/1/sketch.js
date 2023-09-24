@@ -1,42 +1,106 @@
-/*
-
+/*S
 The Game Project
-
 1 - Background Scenery
-
-Use p5 drawing functions such as rect, ellipse, line, triangle and
-point to draw the scenery as set out in the code comments. The items
-should appear next to the text titles.
-
-Each bit of scenery is worth two marks:
-
-0 marks = not a reasonable attempt
-1 mark = attempted but it's messy or lacks detail
-2 marks = you've used several shape functions to create the scenery
-
-I've given titles and chosen some base colours, but feel free to
-imaginatively modify these and interpret the scenery titles loosely to
-match your game theme.
-
-
-WARNING: Do not get too carried away. If you're shape takes more than 5 lines
-of code to draw then you've probably over done it.
-
-
 */
 
 function setup()
 {
 	createCanvas(1024, 576);
+	background(31,17,41); //31,17,41
+    cage();
+
+}
+
+function cage(){
+    //CAGE 
+    noStroke();
+    fill(92,49,112);
+//    noFill();
+    beginShape();
+    vertex(0,0);
+    vertex(0,40);
+    vertex(50,40);
+    vertex(50,0);
+    vertex(70,0);
+    vertex(70,40);
+    vertex(120,40);
+    vertex(120,20);
+    vertex(170,20);
+    vertex(170,0);
+    vertex(190,0);
+    vertex(190,20);
+    vertex(240,20);
+    vertex(250,0);
+    vertex(290,0);
+    vertex(280,20);
+    vertex(270,40);
+    vertex(250,170); // 130
+    vertex(250,250); // 80 
+    vertex(270,380); // 130
+    vertex(280,400);
+    vertex(300,440);
+    vertex(260,440);
+    vertex(240,400);
+    vertex(190,400);
+    vertex(190,435);
+    vertex(170,435);
+    vertex(170,400);
+    vertex(110,400);
+    vertex(110,435);
+    vertex(0,435);
+    vertex(0,410);
+    vertex(85,410);
+    vertex(85,340);
+    vertex(25,340);
+    vertex(25,410);
+    vertex(0,410);
+    vertex(0,315);
+    vertex(110,315);
+    vertex(110,380);
+    vertex(150,380);
+    vertex(150,280);
+    vertex(80,280);
+    vertex(80,240);
+    vertex(40,240);
+    vertex(40,315);
+    vertex(20,315);
+    vertex(20,240);
+    vertex(0,240);
+    vertex(0,220);
+    vertex(10,220);
+    vertex(10,140);
+    vertex(40,140);
+    vertex(40,60);
+    vertex(60,60);
+    vertex(60,160);
+    vertex(30,160);
+    vertex(30,220);
+    vertex(100,220);
+    vertex(100,260);
+    vertex(170,260);
+    vertex(170,380);
+    vertex(235,380);
+    vertex(215,250);
+    vertex(215,170);
+    vertex(235,40);
+    vertex(140,40);
+    vertex(140,60);
+    vertex(0,60);
+    endShape();
+    
+    fill(152,251,152); //fire in rectangle
+    rect(40,360,30,30);
+    
 }
 
 function draw()
 {
-	background(100, 155, 255); //fill the sky blue
+    
 
-//	noStroke();
-	fill(0,155,0);
-	rect(0, 432, 1024, 144); //draw some green ground
+    
+    
+	fill(25, 17, 31);
+	rect(0, 432, 804, 144); //draw some green ground
 
 	//1. a cloud in the sky
 	//... add your code here
@@ -71,12 +135,20 @@ function draw()
 	//5. a collectable token - eg. a jewel, fruit, coins
 	//... add your code here
     
-    ellipse(300,200,25,20);
+    ellipse(350,200,25,20);
     drawCarrot(400,450,50,12,3,9,29);
+    
+    drawSkull(450,550,50);
 
 	noStroke();
 	fill(255);
 	text("collectable item", 400, 400);
+}
+
+function drawSkull(skullX, skullY, size){
+    const x1 = skullX;
+    const y1 = skullY;
+  
 }
 
 function drawCarrot(carrotX, carrotY, carrotLenght, carrotHeight,CarrotWidth, carrotGreen,size){
