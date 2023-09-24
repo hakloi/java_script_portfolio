@@ -3,19 +3,43 @@ The Game Project
 1 - Background Scenery
 */
 
+let img;
+function preload() {
+  img = loadImage('magic.png');
+}
+
 function setup()
 {
 	createCanvas(1024, 576);
-	background(31,17,41); //31,17,41
+	background(31,17,41); //45, 26, 59
     cage();
+    smoke();
 
 }
 
+function smoke(){
+    imageMode(CENTER);
+    image(img,450, 500, 1600, 800);
+    image(img,1000, 500, 1600, 800);
+}
+
+function SetOpacity( imageid, opacity ) {
+    var s= document.getElementById(imageid).style;
+    s.opacity = ( opacity / 100 );
+    s.MozOpacity = ( opacity / 100 );
+    s.KhtmlOpacity = ( opacity / 100 );
+    s.filter = 'alpha(opacity=' + opacity + ')';
+}
+
 function cage(){
-    //CAGE 
+    
+    fill(152,251,152); //fire in rectangle
+    rect(40,360,30,30);
+    rect(165,190,20,15);
+    rect(10,10,30,20);
+    
     noStroke();
     fill(92,49,112);
-//    noFill();
     beginShape();
     vertex(0,0);
     vertex(0,40);
@@ -88,26 +112,150 @@ function cage(){
     vertex(0,60);
     endShape();
     
-    fill(152,251,152); //fire in rectangle
-    rect(40,360,30,30);
+    beginShape();
+    vertex(0,80);
+    vertex(80,80);
+    vertex(80,120);
+    vertex(160,120);
+    vertex(160,40);
+    vertex(170,40);
+    vertex(170,80);
+    vertex(220,80);
+    vertex(220,0);
+    vertex(230,0);
+    vertex(230,100);
+    vertex(170,100);
+    vertex(170,130);
+    vertex(70,130);
+    vertex(70,90);
+    vertex(0,90);
+    vertex(0,80);
+    endShape();
+
+    beginShape();
+    vertex(0,190);
+    vertex(100,190);
+    vertex(100,0);
+    vertex(110,0);
+    vertex(110,170);
+    vertex(130,170);
+    vertex(130,150);
+    vertex(220,150);
+    vertex(220,240);
+    vertex(195,240);
+    vertex(195,180);
+    vertex(155,180);
+    vertex(155,215);
+    vertex(195,215);
+    vertex(195,240);
+    vertex(130,240);
+    vertex(130,180);
+    vertex(110,180);
+    vertex(110,200);
+    vertex(0,200);
+    vertex(0,190);
+    endShape();
     
+    beginShape();
+    vertex(60,240);
+    vertex(60,300);
+    vertex(200,300);
+    vertex(200,350);
+    vertex(110,350);
+    vertex(110,360);
+    vertex(210,360);
+    vertex(210,450);
+    vertex(220,450);
+    vertex(220,350);
+    vertex(210,350);
+    vertex(210,290);
+    vertex(70,290);
+    vertex(70,240);
+    vertex(60,240);
+    endShape();
+    
+    beginShape();
+    vertex(210,40);
+    vertex(210,240);
+    vertex(200,240);
+    vertex(200,290);
+    vertex(190,290);
+    vertex(190,230);
+    vertex(200,230);
+    vertex(200,40);
+    vertex(210,40);
+    endShape();
+    
+    // cage's shadow 
+    fill(152,251,152);
+    beginShape();
+    vertex(280,0);
+    vertex(290,0);
+    vertex(270,40);
+    vertex(250,170); // 130
+    vertex(250,250); // 80 
+    vertex(270,380); // 130
+    vertex(280,400);
+    vertex(300,440);
+    vertex(320,440);
+    vertex(290,380);
+    vertex(270,250);
+    vertex(270,170);
+    vertex(290,40);
+    vertex(310,0);
+    endShape();
 }
 
 function draw()
-{
+{   
+	fill(55, 16, 73); //79, 41, 97
+	rect(0, 432, 604, 144); 
+    rect(754,432,400,144);
+    rect(950,400,80,50);
+    rect(980,370,60,40);
+    rect(1010,340,30,30);
     
-
+    //BG: lipstick
+    fill(93, 45, 181);
+    rect(170,400,150,40);
     
+    fill(195, 49, 108);
+    rect(320,410,20,30)
+    beginShape();
+    vertex(340,410);
+    vertex(360,430);
+    vertex(370,440);
+    vertex(340,440);
+    endShape();
     
-	fill(25, 17, 31);
-	rect(0, 432, 804, 144); //draw some green ground
+    // BG: powder case
+    fill(93, 45, 181);
+    rect(400,392,80,50);
+    rect(440,332,100,110);
+    
+    //mirror
+    fill(172, 155, 204);
+    rect(450,340,70,50);
+    
+    fill(150, 111, 179);
+    ellipse(460,400,110,15);
+    
+    //shadow
+    fill(92,49,112);
+    beginShape();
+    vertex(0,470);
+    vertex(580,470);
+    vertex(604,432);
+    vertex(604,576);
+    endShape();
 
-	//1. a cloud in the sky
-	//... add your code here
-
-//	noStroke();
-	fill(255);
-	text("cloud", 200, 100);
+    beginShape();
+    vertex(1024,470)
+    vertex(778,470);
+    vertex(754,432);
+    vertex(754,576);
+    endShape();
+    
 
 	//2. a mountain in the distance
 	//... add your code here
@@ -123,19 +271,9 @@ function draw()
 	fill(255);
 	text("tree", 800, 346);
 
-	//4. a canyon
-	//NB. the canyon should go from ground-level to the bottom of the screen
-
-	//... add your code here
-
-	noStroke();
-	fill(255);
-	text("canyon", 100, 480);
-
 	//5. a collectable token - eg. a jewel, fruit, coins
 	//... add your code here
     
-    ellipse(350,200,25,20);
     drawCarrot(400,450,50,12,3,9,29);
     
     drawSkull(450,550,50);
@@ -152,38 +290,38 @@ function drawSkull(skullX, skullY, size){
 }
 
 function drawCarrot(carrotX, carrotY, carrotLenght, carrotHeight,CarrotWidth, carrotGreen,size){
-    const x1 = carrotX;
-    const y1 = carrotY;
-    const x2 = x1 + carrotLenght;
-    const y2 = y1 + (carrotHeight/2);
-    const y3 = y2 + CarrotWidth;
-    const y4 = y3 +(carrotHeight/2);
-    
-    fill(255,92,33);
-    beginShape();
-    vertex(x1,y1);
-    vertex(x2,y2);
-    vertex(x2,y3);
-    vertex(x1,y4);
-    endShape();
-    
-    // attempts with arc...
-    const x6 = x1 - carrotGreen;
-    const y6 = y1 + carrotGreen;
-//    const x7 = x6 - (carrotGreen/2);
-//    const y7 = y6 + (carrotGreen/8);
-//    const cGreen = canvas.getContext("2d");
+//    const x1 = carrotX;
+//    const y1 = carrotY;
+//    const x2 = x1 + carrotLenght;
+//    const y2 = y1 + (carrotHeight/2);
+//    const y3 = y2 + CarrotWidth;
+//    const y4 = y3 +(carrotHeight/2);
+//    
+//    fill(255,92,33);
+//    beginShape();
+//    vertex(x1,y1);
+//    vertex(x2,y2);
+//    vertex(x2,y3);
+//    vertex(x1,y4);
+//    endShape();
+//    
+//    // attempts with arc...
+//    const x6 = x1 - carrotGreen;
+//    const y6 = y1 + carrotGreen;
+////    const x7 = x6 - (carrotGreen/2);
+////    const y7 = y6 + (carrotGreen/8);
+////    const cGreen = canvas.getContext("2d");
+////    fill(92,33,255);
+////    cGreen.beginPath();
+////    cGreen.arc(x6, y6, size, 40, 180); //x, y, radius, startAngle, endAngle
+////    cGreen.arc(x7,y7,5, 180,40);
+////    cGreen.stroke();
+//    const x7 = x6+carrotGreen;
+//    const newSize = size/2;
+//    
 //    fill(92,33,255);
-//    cGreen.beginPath();
-//    cGreen.arc(x6, y6, size, 40, 180); //x, y, radius, startAngle, endAngle
-//    cGreen.arc(x7,y7,5, 180,40);
-//    cGreen.stroke();
-    const x7 = x6+carrotGreen;
-    const newSize = size/2;
-    
-    fill(92,33,255);
-    ellipse(x7,y6,size,size);
-    erase();
-    ellipse(x6,y6,newSize,newSize);
-    
+//    ellipse(x7,y6,size,size);
+//    erase();
+//    ellipse(x6,y6,newSize,newSize);
+//    
 }
