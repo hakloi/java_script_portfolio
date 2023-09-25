@@ -12,7 +12,11 @@ function setup()
 {
 	createCanvas(1024, 576);
 	background(31,17,41); //45, 26, 59
+    
+    imageMode(CENTER);
+    image(img,150, 300, 1600, 800);
     cage();
+    witch();
     smoke();
 
 }
@@ -21,6 +25,131 @@ function smoke(){
     imageMode(CENTER);
     image(img,450, 500, 1600, 800);
     image(img,1000, 500, 1600, 800);
+}
+
+function witch(){
+    //hair back
+    fill(100,102,144);
+    beginShape();
+    vertex(560,20);
+    vertex(530,40);
+    vertex(560,100);
+    endShape();
+    
+    rect(560,0,60,220);
+    
+    beginShape();
+    vertex(560,220);
+    vertex(590,300);
+    vertex(600,390);
+    vertex(750,390);
+    vertex(750,150);
+    endShape();
+    
+    //dress
+    fill(149,165,104);
+    beginShape();
+    vertex(700,290);
+    vertex(600,280);
+    vertex(590,290);
+    vertex(570,380);
+    vertex(580,400);
+    vertex(540,450);
+    vertex(540,576);
+    vertex(900,576);
+    vertex(950,370);
+    vertex(900,300);
+    endShape();
+    
+    //skin
+    fill(238,230,222);
+    beginShape();
+    vertex(600,10);
+    vertex(590,150);
+    vertex(640,230);
+    vertex(670,240);
+    vertex(710,220);
+    vertex(700,290);
+    vertex(600,380);
+    vertex(660,430);
+    vertex(790,390);
+    vertex(770,290);
+    vertex(770,200);
+    vertex(760,70);
+    endShape();
+    
+    //hair forward
+    fill(153,153,255);
+    rect(590,0,200,70);
+    rect(760,20,60,270);
+    
+    beginShape();
+    vertex(570,70);
+    vertex(590,130);
+    vertex(600,40)
+    endShape();
+    
+    beginShape();
+    vertex(690,70);
+    vertex(730,10);
+    vertex(800,140);
+    endShape();
+    
+    beginShape();
+    vertex(760,290);
+    vertex(800,390);
+    vertex(820,470);
+    vertex(880,470);
+    vertex(840,40);
+    vertex(820,0);
+    vertex(790,0);
+    endShape();
+    
+    //eyes
+    fill(0,0,0);
+    beginShape();
+    vertex(590,110);
+    vertex(600,100);
+    vertex(640,110);
+    vertex(640,115);
+    endShape();
+    
+    beginShape();
+    vertex(670,110);
+    vertex(680,100);
+    vertex(730,110);
+    vertex(730,115);
+    endShape();
+    
+    //blush
+    fill(150, 111, 179);
+    ellipse(600,140,10,20);
+    ellipse(615,140,10,20);
+    ellipse(630,140,10,20);
+    
+    ellipse(700,140,10,20);
+    ellipse(715,140,10,20);
+    ellipse(685,140,10,20);
+    
+    //lips
+    fill(195, 49, 108);
+    beginShape();
+    vertex(630,190);
+    vertex(670,200);
+    vertex(690,180);
+    vertex(700,185);
+    endShape();   
+    
+    //hat
+    fill(149,165,104);
+    beginShape();
+    vertex(450,0);
+    vertex(450,10);
+    vertex(1000,100);
+    vertex(990,90);
+    vertex(840,20);
+    vertex(820,0);
+    endShape();
 }
 
 function SetOpacity( imageid, opacity ) {
@@ -32,13 +161,12 @@ function SetOpacity( imageid, opacity ) {
 }
 
 function cage(){
-    
+    noStroke();
     fill(152,251,152); //fire in rectangle
     rect(40,360,30,30);
     rect(165,190,20,15);
     rect(10,10,30,20);
     
-    noStroke();
     fill(92,49,112);
     beginShape();
     vertex(0,0);
