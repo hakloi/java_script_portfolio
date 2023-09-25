@@ -256,72 +256,34 @@ function draw()
     vertex(754,576);
     endShape();
     
-
-	//2. a mountain in the distance
-	//... add your code here
-
-//	noStroke();
-	fill(255);
-	text("mountain", 500, 256);
-
-	//3. a tree
-	//... add your code here
-
-	noStroke();
-	fill(255);
-	text("tree", 800, 346);
-
-	//5. a collectable token - eg. a jewel, fruit, coins
-	//... add your code here
-    
-    drawCarrot(400,450,50,12,3,9,29);
-    
-    drawSkull(450,550,50);
-
-	noStroke();
-	fill(255);
-	text("collectable item", 400, 400);
+    drawSkull(490, 250);
+    drawSkull(680,320);
+    drawSkull(850,380);
 }
 
-function drawSkull(skullX, skullY, size){
-    const x1 = skullX;
-    const y1 = skullY;
-  
-}
 
-function drawCarrot(carrotX, carrotY, carrotLenght, carrotHeight,CarrotWidth, carrotGreen,size){
-//    const x1 = carrotX;
-//    const y1 = carrotY;
-//    const x2 = x1 + carrotLenght;
-//    const y2 = y1 + (carrotHeight/2);
-//    const y3 = y2 + CarrotWidth;
-//    const y4 = y3 +(carrotHeight/2);
-//    
-//    fill(255,92,33);
-//    beginShape();
-//    vertex(x1,y1);
-//    vertex(x2,y2);
-//    vertex(x2,y3);
-//    vertex(x1,y4);
-//    endShape();
-//    
-//    // attempts with arc...
-//    const x6 = x1 - carrotGreen;
-//    const y6 = y1 + carrotGreen;
-////    const x7 = x6 - (carrotGreen/2);
-////    const y7 = y6 + (carrotGreen/8);
-////    const cGreen = canvas.getContext("2d");
-////    fill(92,33,255);
-////    cGreen.beginPath();
-////    cGreen.arc(x6, y6, size, 40, 180); //x, y, radius, startAngle, endAngle
-////    cGreen.arc(x7,y7,5, 180,40);
-////    cGreen.stroke();
-//    const x7 = x6+carrotGreen;
-//    const newSize = size/2;
-//    
-//    fill(92,33,255);
-//    ellipse(x7,y6,size,size);
-//    erase();
-//    ellipse(x6,y6,newSize,newSize);
-//    
+function drawSkull(carrotX, carrotY){
+    const x1 = carrotX;
+    const y1 = carrotY;
+    
+    const x2 = x1 + 8;
+    const y2 = y1 + 14;
+    const x3 = x2 - 10;
+    const x4 = x3 - 10;
+    
+    const eyeRightX = x1 -9;
+    const eyeRightY = y1;
+    
+    const eyeLeftX = eyeRightX + 18;
+    
+    fill(152,251,152); 
+    ellipse(x1,y1,40,40);
+    rect(x2,y2,5,15);
+    rect(x3, y2, 5, 15);
+    rect(x4, y2, 5 , 15);
+    
+    fill(0,0,0);
+    ellipse(eyeRightX, eyeRightY, 15,15 );
+    ellipse(eyeLeftX, eyeRightY, 15,15)
+   
 }
