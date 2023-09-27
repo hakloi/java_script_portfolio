@@ -123,5 +123,59 @@ function draw()
 	gameChar_x = 245;
 	gameChar_y = 537;
 	//Add your code here ...
+    
+    standFront(45,80);
+
+}
+
+function standFront(sfrontX, sfrontY){
+    //dress
+    const x1 = sfrontX;
+    const y1 = sfrontY;
+    
+    const x2 = x1 - 15;
+    const y2 = y1 + 5;
+    
+    const x3 = x1 +15;
+    const y3 = y2 + 35;
+    
+    const x4 = x2 + 10;
+    const y4 = y3 + 5;
+    
+    const x5 = x3 -10;
+    
+    //left leg
+    fill(255, 158, 186);
+    beginShape();
+    vertex(40,120);
+    vertex(45,135);
+    vertex(35,135);
+    vertex(40,130);
+    endShape();
+    
+    //right leg
+    fill(255, 158, 186);
+    beginShape();
+    vertex(40,120);
+    vertex(45,135);
+    vertex(35,135);
+    vertex(40,130);
+    endShape();
+    
+    //dress
+    fill( 119, 191, 162);
+    beginShape();
+    vertex(x4,y2);
+    vertex(x2,y3);
+    vertex(x1,y4);
+    vertex(x3,y3);
+    vertex(x5,y2);
+    endShape();
+    
+    //head
+    fill(255, 158, 186);
+    ellipse(x1, y1,20,20 );
+
+    
 
 }
