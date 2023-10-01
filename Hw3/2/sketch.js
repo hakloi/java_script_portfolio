@@ -607,7 +607,7 @@ function jumpLeft(jleftX, jleftY){
     const y2 = y1 + 5;
     
     const x3 = x1 +15;
-    const y3 = y2 + 35;
+    const y3 = y2 + 25;
     
     const x4 = x2 + 10;
     const y4 = y3 + 5;
@@ -618,17 +618,27 @@ function jumpLeft(jleftX, jleftY){
     const l1 = x1 + 2;
     const l2 = l1 + 5;
     const l3 = l1 - 6;
+    const l4 = l1 - 5;
+    const l5 = l2-7;
+    const l6 = l2-5;
     
-    const ll1 = y1 + 40;
-    const ll2 = ll1+15;
+    const ll1 = y1 + 35;
+    const ll2 = ll1+10;
     const ll3 = ll2-5;
+    const ll4 = ll3-5;
+    const ll5 = ll3-10;
+    const ll6 = ll3-8;
+    
     //left leg
     fill(255, 158, 186);
     beginShape();
-    vertex(l1,ll1);
+    vertex(l6-3,ll6);
+    vertex(l1,ll1+2);
     vertex(l2,ll2);
-    vertex(l3,ll2);
+    vertex(l3,ll2+3);
     vertex(l1,ll3);
+    vertex(l4,ll4);
+    vertex(l5,ll5);
     endShape();
     
     const r1 = x1;
@@ -647,11 +657,11 @@ function jumpLeft(jleftX, jleftY){
     
     const bcircleY = y1 + 10;
     
-    const b1 = x1 -5;
-    const b2 = x1 + 5;
+    const b1 = x1 +14;
+    const b2 = x1 + 14;
     const bb1 = y1 +10;
-    const bb2 = bb1 + 10;
-    const bb3 = bb2 +5;
+    const bb2 = bb1 + 5;
+
     
     //necktie
     // buttons
@@ -660,8 +670,9 @@ function jumpLeft(jleftX, jleftY){
     
     beginShape();
     vertex(x1,bb1);
-    vertex(b1,bb2);
-    vertex(x1,bb3);
+    vertex(b1,bb1);
+    vertex(b2,bb2);
+    vertex(x1,bb1);
     endShape();
     
     //head
@@ -671,13 +682,14 @@ function jumpLeft(jleftX, jleftY){
     //eyes
     const ey1 = x1-5;
     const ey3 = x1-7;
+    const eyy2 = y1+2;
 
     
     fill(350,350,350);
     ellipse(ey1,y1,5,10);
     
     fill(0,0,0);
-    ellipse(ey3,y1,2,4);
+    ellipse(ey3,eyy2,2,4);
 
     
     //pecker
@@ -716,7 +728,7 @@ function jumpRight(jrightX, jrightY){
     const y2 = y1 + 5;
     
     const x3 = x1 + 10;
-    const y3 = y2 + 35;
+    const y3 = y2 + 25;
     
     const x4 = x2 + 10;
     const y4 = y3 + 5;
@@ -726,7 +738,7 @@ function jumpRight(jrightX, jrightY){
     //-----
 
     
-    const ll1 = y1 + 40;
+    const ll1 = y1 + 35;
     const ll2 = ll1+15;
     const ll3 = ll2-5;
 
@@ -734,13 +746,17 @@ function jumpRight(jrightX, jrightY){
     const r2 = r1 + 5;
     const r3 = r2 + 5;
     
+
     //right leg
     fill(255, 158, 186);
     beginShape();
     vertex(r2,ll1);
-    vertex(r1,ll2);
-    vertex(r3,ll2);
-    vertex(r2,ll3);
+    vertex(r2-2,ll1+5);
+    vertex(r1,ll2-3);
+    vertex(r3,ll2+2);
+    vertex(r2-1,ll3-2);
+    vertex(r2+3,ll3-8);
+    vertex(r2+4,ll3-15);
     endShape();
     
     //dress
@@ -755,10 +771,10 @@ function jumpRight(jrightX, jrightY){
     
     const bcircleY = y1 + 10;
     
-    const b1 = x1;
-    const b2 = x1 + 5;
+    const b1 = x1-15;
+    const b2 = x1 + 15;
     const bb1 = y1 +10;
-    const bb2 = bb1 + 10;
+    const bb2 = bb1 + 5;
     const bb3 = bb2 +5;
     
     //necktie
@@ -768,9 +784,8 @@ function jumpRight(jrightX, jrightY){
     
     beginShape();
     vertex(x1,bb1);
+    vertex(b1,bb1);
     vertex(b1,bb2);
-    vertex(x1,bb3);
-    vertex(b2,bb2)
     endShape();
     
     //head
@@ -778,16 +793,15 @@ function jumpRight(jrightX, jrightY){
     ellipse(x1, y1,20,20 );
 
     //eyes
-    const ey1 = x1-5;
     const ey2 = x1+5;
-    const ey3 = x1-3;
     const ey4 = x1+7;
+    const eyy4 = y1+2;
     
     fill(350,350,350);
     ellipse(ey2,y1,5,10);
     
     fill(0,0,0);
-    ellipse(ey4,y1,2,4);
+    ellipse(ey4,eyy4,2,4);
     
     //pecker
     const xx1 = x1 + 8;
