@@ -9,18 +9,9 @@ let isRight = false;
 let isFalling = false;
 let isPlummeting = false;
 
-var scrollPos;
-let laugh;
-let backgroundMusic;
 
 let stars = []; 
 let numStars = 400; 
-let candles_x;
-let sizeCandl;
-
-let fireColors = [];
-let currentColorIndex = 0;
-let frameCounter = 0;
 
 var clouds = [];
 
@@ -28,18 +19,12 @@ let platformTouchCount = 0;
 
 let img;
 function preload() {
-    img = loadImage('magic.png');
-    soundFormats('mp3', 'ogg');
-    laugh = loadSound('..\javascript_portfolio\Hw5\2b\sounds\laugh.mp3');
-    backgroundMusic = loadSound('..\javascript_portfolio\Hw5\2b\sounds\background.mp3');
+  img = loadImage('magic.png');
 }
 
 function setup()
 {
 	createCanvas(1024, 576);
-    backgroundMusic.loop();
-    scrollPos = 0;
-    
     let r = random(0,15);
     for (var i = 0; i < r; i++) {
         clouds[i] = new Cloud(); 
@@ -71,7 +56,6 @@ function setup()
     for (let i = 0; i < numStars; i++) {
         stars[i] = createVector(random(width), random(height), random(1,3));
     }
-    
 }
 
 function smoke(){
@@ -389,82 +373,55 @@ function cage(){
 
 function draw(){
     background(31,17,41); //45, 26, 59
-    translate(scrollPos,0);
-    push();
     
-
     // STARS
     for (let i = 0; i < numStars; i++){
         fill(255,255,255);    
         ellipse(stars[i].x, stars[i].y, stars[i].z);
-    }
-    
-    //Images smoke
+  }
+    //next
     imageMode(CENTER);
     image(img,150, 300, 1600, 800);
     
-    
-    //clouds
     for (var i = 0; i < clouds.length; i++) {
         clouds[i].move();
         clouds[i].display();
     }
     
     drawLevel();
+    //movement
+    stateController();
+  
     
-    // CANDLES
-    function drawCandles(xPosition,drops,fire){
-        const x = xPosition;
-        const y = 310;
-        fill(255,113,0,90);
-        ellipse(x+10,y-20,60,60);
-        fill(255,191,0,50);
-        ellipse(x+30,y-40,40,40);
-        
-        fill(20,20,20);
-        ellipse(x+25,y+140 ,120,20);
-        
-        fill(237, 237, 237); //209, 209, 209
-        rect(x, y, 50, 132);
-        ellipse(x,y+132 ,20,10);
-        ellipse(x+drops,y+135 ,20,10);
-        
-        fill(209, 209, 209);
-        ellipse(x,y+10,10,20);
-        ellipse(x+20,y+15,10,30);
-        ellipse(x+20,y+55,10,20);
-        ellipse(x+drops+10,y+130,20,10);
-        
-        // fire
-        fireColors = ['#FF9540','#FFCF73', '#FE3F44','#FFCF73'];
-        
-        const fireX = x + 23;
-        const fireY = y - 16;
-        const fireSize = 30;
-        const currentColor = fireColors[currentColorIndex];
-
-        fill(currentColor);
-        ellipse(fireX, fireY, fireSize, fireSize);
-        
-        ellipse(fireX-10, fireY-10, fireSize-20, fireSize-20);
-        ellipse(fireX+15, fireY-20, fireSize-15, fireSize-15);
-        ellipse(fireX+5, fireY-30, fireSize-20, fireSize-20);
-        ellipse(fireX+drops-20, fireY-drops, fireSize-drops, fireSize-drops);
-    }
-
-    frameCounter++;
-    if (frameCounter % 7 === 0) {
-        // сhange color every n frames 
-        currentColorIndex = (currentColorIndex + 1) % fireColors.length;
-    }
-    
-    candles_x = [20,1000,1400,1502];
-    drops = [10,40,50,20,20];
-    for (let i = 0; i < candles_x.length; i++) {
-        drawCandles(candles_x[i], drops[i]);
-    }
-    
-    //collects
+ 
+ 
+    //collect things
+ 
+//    class Collect {
+//    constructor(x_pos, y_pos) {
+//        this.x_pos = x_pos;
+//        this.y_pos = y_pos;
+//        this.isFound = false;
+//    }
+//    checkIfFound(CharX, CharY) {
+//        if (this.isFound == false) {
+//            drawSkull(this.x_pos, this.y_pos);
+//        }
+//
+//        if (dist(CharX, CharY, this.x_pos, this.y_pos) < 40) {
+//            this.isFound = true;
+//        }
+//    }
+//}
+// 
+//    
+//    let collect1 = new Collect(300, 400);
+//    let collect2 = new Collect(500, 400);
+// 
+//    collect1.checkIfFound(CharX, CharY);
+//    collect2.checkIfFound(CharX, CharY);
+ 
+ 
     if (collect.isFound == false) {
         drawSkull(collect.x_pos, collect.y_pos)
     }
@@ -480,6 +437,8 @@ function draw(){
      if (dist(CharX, CharY, collect2.x_pos, collect2.y_pos) < 40) {
             collect2.isFound = true;
      }
+
+ 
  
     // canyon
     // character is over the canyon
@@ -500,7 +459,7 @@ function draw(){
     if (CharX> canyon_x && CharX < canyon_x + canyon_width && CharY >= floorPos_y && CharY=== floorPos_y) {
         isPlummeting = false; 
     }
-    
+ 
     //  platform
     fill(55, 16, 73); //79, 41, 97
 	rect(platform.xp_pos, platform.yp_pos, 60, 20);
@@ -512,23 +471,36 @@ function draw(){
     if (platform.xp_pos < canyon_x+10 || platform.xp_pos > canyon_x+canyon_width-70) {
         platform.speedPlatform*= -1; 
     }
-    
-    if (CharX == 300 ) {
-        // воспроизведение звука
-        laugh.play();
-    }
  
-    pop();
+    // персонаж с платформой
+//    if (CharY >= platform.yp_pos && dist(platform.xp_pos, platform.yp_pos, CharX, CharY) <= 50)
     
-    //movement
-    stateController();
+    /*
+    if (CharY >= platform.yp_pos && CharX >= platform.xp_pos && CharX <= platform.xp_pos + 60){
+        isFalling = false; // персонаж находится на платформе
+        CharY = platform.yp_pos;
+        CharX += platform.speedPlatform; 
+        
+        // ВЕРНУТЬСЯ К ЭТОМУ ПОЗЖЕ!!!!!!!!!!!!!!
+        platformTouchCount++; // увеличиваем счетчик касаний платформы
+    } else {
+        isFalling = true; // персонаж в воздухе
+    }
+    */
     
 
+    // проверяем провалился ли персонаж в каньон
+    /*
+    if (isFalling && platformTouchCount === 0) {
+        isPlummeting = true;
+        console.log("True");
+    }
+    */
+ 
     if (CharX> canyon_x && CharX < canyon_x + canyon_width && CharY >= floorPos_y && CharY === floorPos_y && !isFalling) {
         isPlummeting = false;
         CharY -= 5;
 }
-
 }
 
 function keyPressed(){
@@ -563,39 +535,12 @@ function drawLevel(){
         cage();
         witch();
         smoke();
-    
-        // BACK TEXT
-        function textHorror(){
-            let rr = random(60,80);
-            let rrr = random(40,50);
-            textSize(60);
-            fill(255,35,0);
-            textStyle(BOLD);
-            text("ばかばっか", 2*width/1.5-rrr , rr);
-
-            
-            textSize(42);
-            textStyle(BOLD);
-            fill('#FD0006');
-            let texts= ["ばかばっか","そう天才でも変態でも繊細でもないからこそ"];
-            for(let i = 0; i < 10; i++) {
-                for(let j = 0; j < 10; j++) {
-                    let index = (i + j) % texts.length;
-                    text(texts[index], width + i * 100, 100 + j * 50);
-                }
-            }
-        }
-    
-        textHorror();
-    
         fill(55, 16, 73); //79, 41, 97
         rect(0, 432, 604, 144); 
         rect(754,432,400,144);
         rect(950,400,80,50);
         rect(980,370,60,40);
         rect(1010,340,30,30);
-        rect(1100,432,500,570);
-        
 
         //BG: lipstick
         fill(93, 45, 181);
@@ -645,12 +590,10 @@ function stateController(){
     if (isRight){
         standRight(CharX, CharY);
         CharX = CharX + 7;
-        scrollPos -= 5
     }
     if (isLeft){
         standLeft(CharX, CharY);
         CharX = CharX - 7;
-        scrollPos += 5
     }
     if (isFalling){
         if (isRight) jumpRight(CharX, CharY);
@@ -692,7 +635,6 @@ function drawSkull(carrotX, carrotY){
 }
 
 function standFront(sfrontX, sfrontY){
-    noStroke();
     //dress
     const x1 = sfrontX;
     const y1 = sfrontY;
