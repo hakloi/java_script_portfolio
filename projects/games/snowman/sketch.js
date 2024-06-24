@@ -10,6 +10,9 @@ var cloud;
 let enemyPlayed = false;
 let isKilled = false;
 
+let charJumpPosStart; 
+let charJumpPosCurrent; 
+
 var scroll;
 
 var song;
@@ -113,6 +116,8 @@ function startGame(){
         isPlummeting: false,
         hasFallen: false,
         onPlatform: false,
+        canJump: true, 
+        charJumping:false, 
         
         jumpRight() {
             fill(255, 200, 0);
@@ -307,6 +312,7 @@ function draw(){
     pop();
 
     movementController();
+    updateJump();
     player.playerDead();
 
     if (lives < 1 ) {
@@ -585,9 +591,23 @@ function checkCollision(enemy, player) {
        player.isRight = false;
        player.isLeft = false;
        player.isPlummeting = true;
+       player.canJump = false;
    } else {
        enemyPlayed = false;
    }
+}
+
+function updateJump() {
+  if (player.charJumping) {
+    charJumpPosCurrent -= 10;
+    
+    if (charJumpPosCurrent <= charJumpPosStart - 180 || (player.onPlatform && charJumpPosCurrent <= charJumpPosStart - 90)) {
+      charJumpPosCurrent = charJumpPosStart - 180;
+      player.charJumping = false;
+    }
+    
+    player.y = charJumpPosCurrent;
+  }
 }
 
 function changeSound() {
@@ -620,11 +640,16 @@ function keyPressed() {
   if (keyCode === RIGHT_ARROW) {
     player.isRight = true;
   }
-  if (keyCode === UP_ARROW) {
-    if (player.y === floorPos_y || player.onPlatform) {
-      player.y -= 180;
-    }
+if (keyCode === UP_ARROW) {
+  if (player.onPlatform) {
+    player.y -= 150;
+    player.onPlatform = false;
+  } else if (!player.charJumping && player.canJump) {
+    player.charJumping = true;
+    charJumpPosStart = player.y;
+    charJumpPosCurrent = player.y;
   }
+}
 }
 
 function keyReleased() {
