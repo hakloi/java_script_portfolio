@@ -4,10 +4,13 @@ function HelperFunctions() {
 	//start we don't need to do that here because the event will
 	//be added to the button and doesn't 'belong' to the object
 
+    select("#undo").mouseClicked(function() {
+        
+	});
 	//event handler for the clear button event. Clears the screen
 	select("#clearButton").mouseClicked(function() {
-		//???
-
+		
+        background(255)
 		//call loadPixels to update the drawing state
 		//this is needed for the mirror tool
 		loadPixels();
@@ -16,6 +19,6 @@ function HelperFunctions() {
 	//event handler for the save image button. saves the canvsa to the
 	//local file system.
 	select("#saveImageButton").mouseClicked(function() {
-		//???
+        saveCanvas()
 	});
 }
