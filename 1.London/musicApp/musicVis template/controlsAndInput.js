@@ -7,12 +7,14 @@ function ControlsAndInput(){
 	//playback button displayed in the top left of the screen
 	this.playbackButton = new PlaybackButton();
 
-	//make the window fullscreen or revert to windowed
-	this.mousePressed = function(){
-		//???
-		//check if the playback button has been clicked
-		//if not make the visualisation fullscreen
-	};
+    //make the window fullscreen or revert to windowed
+    this.mousePressed = function(){
+        //if not button -> fullscreen
+        if(!this.playbackButton.hitCheck()){
+			var fs = fullscreen();
+			fullscreen(!fs);
+		}
+    };
 
 	//responds to keyboard presses
 	//@param keycode the ascii code of the keypressed
@@ -49,8 +51,11 @@ function ControlsAndInput(){
 	};
 
 	this.menu = function(){
-		//draw out menu items for each visualisation
-		//???
+        for(var i = 0; i < vis.visuals.length; i++){
+			var yLoc = 80 + i*50;
+			text((i+1) + ":  " +vis.visuals[i].name, 100, yLoc);
+		}
+
 	};
 }
 
