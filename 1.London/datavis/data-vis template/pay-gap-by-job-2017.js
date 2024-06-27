@@ -82,9 +82,17 @@ function PayGapByJob2017() {
       // x = propFemale
       // y = payGap
       // size = numJobs
-      ellipse(
-        /// ???
-      );
+//      ellipse( 
+//        map(this.propFemale,
+//            this.propFemaleMin,
+//              this.propFemaleMax, ),
+//        map(this.payGap,
+//            this.payGapMin,
+//              this.payGapMax, ),
+//        map(this.numJobs,
+//            this.numJobsMin,
+//              this.numJobsMax, )
+//      );
     }
   };
 
